@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoccArt: A Pipeline for Soccer Game Analysis · Sahil Chaudhary</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .post-header {
+      padding: 36px 0 28px;
+    }
+    .post-header .post-meta {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.5);
+      margin-bottom: 12px;
+    }
+    .post-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+      max-width: 700px;
+      color: #0d0d0d;
+    }
+    .post-body {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: #1a1a1a;
+    }
+    .post-body h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 32px 0 14px;
+      color: #0d0d0d;
+    }
+    .post-body p { margin-bottom: 18px; }
+    .post-body ul { margin: 0 0 18px 22px; }
+    .post-body li { margin-bottom: 8px; }
+    .post-body code {
+      background: #19197e;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 0.88em;
+    }
+    .post-body blockquote {
+      border-left: 3px solid #1400C8;
+      padding-left: 20px;
+      color: #555;
+      font-style: italic;
+      margin: 24px 0;
+    }
+    .post-body figure {
+      margin: 24px 0;
+    }
+    .post-body figure img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+    .post-body figcaption {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 8px;
+      text-align: center;
+    }
+    .post-video {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      margin: 24px 0;
+      background: #000;
+    }
+    .post-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 28px;
+      font-size: 0.88rem;
+    }
+    .post-body th, .post-body td {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid #e2e2ea;
+    }
+    .post-body th {
+      font-weight: 700;
+      color: #333;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: rgb(69, 9, 160); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-name">Sahil Chaudhary</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">About</a></li>
+      <li><a href="../publications.html">Publications</a></li>
+      <li><a href="../blogs.html" class="active">Blogs</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+    </ul>
+  </nav>
+
+  <div class="page">
+
+    <a href="../blogs.html" class="back-link">← Back to Blogs</a>
+
+    <div class="post-header">
+      <p class="post-meta">Aug 2026 · Computer Vision, Applied ML, Sports Analytics</p>
+      <h1>SoccArt: A Pipeline for Soccer Game Analysis</h1>
+    </div>
+
+    <div class="card">
+      <div class="post-body">
+
+        <p>
+          One of the project which involved me building pipelines and was somewhat applied ml was this project.
+          Back in my third year, a few friends and I put together <strong>SoccArt</strong>; an end-to-end computer
+          vision pipeline that takes raw broadcast footage of a soccer match and turns it into structured,
+          analyzable data: player and ball positions, team assignments, jersey numbers, and a top-down minimap of
+          the game.
+        </p>
+
+        <p>
+          What made this project memorable was that it got picked up beyond just a course submission. We were
+          invited by <strong><a href="https://cds.iisc.ac.in/faculty/deepakns/">Prof. Deepak Subramani</a>  </strong> to present it as a poster, and it ended up going to the
+          <strong>1st Conference on Applied AI and Scientific Machine Learning (<a href="https://casml.cc/">CASML 2024</a>)</strong>, held from
+          16th-18th December 2024, under the title <em>"State of the Art Soccer Analysis Pipeline using Artificial
+          Intelligence."</em> It was a great excuse to take something that started as a hacky course project and push
+          it to a level where it could hold up in front of a room full of people asking hard questions about it.
+        </p>
+        <h2>Motivation</h2>
+        <p>
+          A lot of us on the team just enjoy watching football, and like most fans we wanted to keep track of
+          scores and maybe get a bit predictive about it; using past data to reason about how a team or player
+          is likely to perform. Doing that properly means keeping <strong>information</strong> about every player up to date:
+          where they played on the pitch, how many goals they scored, how their game evolved over a season. You
+          can maintain all of that by hand, but it becomes a lot easier if you can just point a model at existing
+          match footage and have it keep track of everyone for you.
+        </p>
+        <p>
+          This line of thinking is what pushed us toward wanting a top-down view of the game rather than just
+          annotating the broadcast feed. Watching the broadcast angle, it's genuinely hard to tell how the ball
+          is actually moving between the two teams. A bird's-eye minimap makes that immediately obvious, and
+          that was really the core intuition. If somehow we can manage to get bird's eye view of the game, we can use that map to keep track of player's position in the ground or track any sensible information. So the technical bet became: if we could track the jersey number,
+          the player, and the ball closely enough to reconstruct an equivalent top-down view of the match, a lot
+          of interesting statistics would start to fall out almost for free.
+        </p>
+        <p>
+          That was more or less the motivation that led us to propose this as a course project. I quite enjoyed
+          working on it back then.
+        </p>
+
+        <h2>What the pipeline actually does</h2>
+        <p>
+          The system is built around a few stages, each of which was its own rabbit hole of tuning and
+          engineering:
+        </p>
+        <ul>
+          <li><strong>Detection &amp; tracking:</strong> YOLOv10 for detecting players, referees, and the ball,
+            combined with ByteTrack to keep consistent identities across frames.</li>
+          <li><strong>Team identification &amp; jersey recognition:</strong> SigLIP-based color clustering to split
+            players into teams, plus ResNet34 and ViTPose-based models to read jersey numbers off moving players.</li>
+          <li><strong>Field calibration:</strong> homography estimation to calibrate the broadcast camera against
+            the pitch and project every detection onto a 2D minimap.</li>
+          <li><strong>Temporal smoothing:</strong> interpolation with sliding-window smoothing so tracks don't
+            jitter frame to frame, which matters a lot once you start computing things like distance covered or
+            passing lanes.</li>
+        </ul>
+
+        <figure>
+          <img src="https://raw.githubusercontent.com/sahil-chaudhary/Sports-Analysis/main/figures/arch.png" alt="SoccArt pipeline architecture diagram" />
+          <figcaption>Pipeline overview: from raw video to detections, team/jersey assignment, calibration, and minimap projection.</figcaption>
+        </figure>
+
+        <p>
+          Here's the pipeline running on an actual clip — raw frame, detections with tracking IDs, and the
+          resulting minimap:
+        </p>
+
+        <figure>
+          <img src="https://raw.githubusercontent.com/sahil-chaudhary/Sports-Analysis/main/figures/original.jpg" alt="Original broadcast frame" />
+          <figcaption>Original broadcast frame.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://raw.githubusercontent.com/sahil-chaudhary/Sports-Analysis/main/figures/marked.jpg" alt="Frame with player, referee, and ball detections marked" />
+          <figcaption>Detections and tracking markers overlaid on the frame.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://raw.githubusercontent.com/sahil-chaudhary/Sports-Analysis/main/figures/minimap.jpg" alt="Minimap visualization of player positions" />
+          <figcaption>Homography-projected minimap — every player and the ball, mapped onto a top-down pitch.</figcaption>
+        </figure>
+
+        <p>Here's the tracking demo video from the repo:</p>
+
+        <video class="post-video" controls preload="metadata" poster="https://raw.githubusercontent.com/sahil-chaudhary/Sports-Analysis/main/figures/marked.jpg">
+          <source src="../SoccArt_Project/assets/soccart_demo.mp4" type="video/mp4" />
+          Your browser does not support the video tag. You can watch the demo on
+          <a href="https://youtu.be/RK7scSvPiHY" target="_blank">YouTube</a> instead.
+        </video>
+
+
+        <h2>Team</h2>
+        <p>
+          This was very much a group effort with <strong>Aditya Gupta, Armaan Khetarpaul, R. K. Shishir, S. Sharath, and
+          Umang Majumder</strong>; each of us owned a different stage of the pipeline, from detection and tracking to
+          calibration and jersey recognition, and the poster was really a synthesis of all of it.
+        </p>
+
+        <p>
+          Code, the trained weights, the full poster, and the abstract are all up on the
+          <a href="https://github.com/sahil-chaudhary/Sports-Analysis" target="_blank">GitHub repo</a> if you want
+          to dig into the implementation.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
