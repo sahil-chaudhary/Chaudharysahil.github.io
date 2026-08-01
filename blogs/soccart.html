@@ -195,17 +195,25 @@
           <img src="https://raw.githubusercontent.com/sahil-chaudhary/Sports-Analysis/main/figures/original.jpg" alt="Original broadcast frame" />
           <figcaption>Original broadcast frame.</figcaption>
         </figure>
-
+        <p>
+          Video can be broken down into frames, and each frame can be processed to detect players, referees, and the ball. The idea is to parallely calibrate the potential position of the camera relative to the pitch, and detect the object of interests in the frame. 
+        </p>
         <figure>
           <img src="https://raw.githubusercontent.com/sahil-chaudhary/Sports-Analysis/main/figures/marked.jpg" alt="Frame with player, referee, and ball detections marked" />
           <figcaption>Detections and tracking markers overlaid on the frame.</figcaption>
         </figure>
+        <p>
+          Once the object of interests are detected, the next step is to project the detected objects onto a top-down view of the pitch. This is done by estimating the homography between the broadcast camera and the pitch, allowing us to map each detection to its corresponding (potential) position on the minimap. During this stage, we also assign each player to a team and read their jersey numbers, which is crucial for tracking individual players across frames. The speed at which one may be able to construct such map is a function of the inference process. I believe this was my first project where inference was a bottleneck, in particular the jersey number recognition stage. The inference time for this stage was quite high. 
+        </p>
 
+        <p>
+          During the time of the project, I was not yet aware of the techniques in model compression and quantization, which could have been used to speed up the inference process. We had limited time and we were just running on coffee and energy drinks during that time of the semester. This did not allow us to think about the inference time and how to optimize it. We were more focused on getting the pipeline to work end-to-end, and we were able to achieve that. The inference time was not a major concern for us at that time. However, I believe that with the current state of model compression and quantization techniques, we could have significantly reduced the inference time for the jersey number recognition stage. 
+        </p>
         <figure>
           <img src="https://raw.githubusercontent.com/sahil-chaudhary/Sports-Analysis/main/figures/minimap.jpg" alt="Minimap visualization of player positions" />
           <figcaption>Homography-projected minimap — every player and the ball, mapped onto a top-down pitch.</figcaption>
         </figure>
-
+        <p>When a frame is processed completely, one may achieve a minimap as above where each team can be repesented by a particular color. The highlighted region is the potential point of view of the camera being used to record the match. This ensures that we have certain intuition about the players within the region and time frames where the statistics around the player can be trusted. </p>
         <p>Here's the tracking demo video from the repo:</p>
 
         <video class="post-video" controls preload="metadata" poster="https://raw.githubusercontent.com/sahil-chaudhary/Sports-Analysis/main/figures/marked.jpg">
@@ -213,7 +221,9 @@
           Your browser does not support the video tag. You can watch the demo on
           <a href="https://youtu.be/RK7scSvPiHY" target="_blank">YouTube</a> instead.
         </video>
-
+        <p>
+          The demo video shows the pipeline in action and the resulting minimap after the video is processed. This minimap can be used to compute various statistics about the game, such as player positions, ball possession, and passing lanes. The minimap can also be used to visualize the game in a more intuitive way, allowing coaches and analysts to make better decisions based on the data. Few examples of such analysis are included in our GitHub repo.
+        </p>
 
         <h2>Team</h2>
         <p>
