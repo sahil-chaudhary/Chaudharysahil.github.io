@@ -4,48 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Publications · Sahil Chaudhary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <nav>
-    <a href="index.html" class="nav-name">Sahil Chaudhary</a>
-    <ul class="nav-links">
-      <li><a href="index.html">About</a></li>
-      <li><a href="publications.html" class="active">Publications</a></li>
-      <li><a href="blogs.html">Blogs</a></li>
-      <li><a href="notes.html">Notes</a></li>
-    </ul>
-  </nav>
+  <div class="grid-layer" aria-hidden="true"></div>
+  <div class="grain-layer" aria-hidden="true"></div>
 
   <div class="page">
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="index.html">Sahil Chaudhary<span class="dot">.</span></a>
+        <nav class="menu" aria-label="Primary">
+          <a href="index.html">About</a>
+          <a href="publications.html" aria-current="page">Publications</a>
+          <a href="blogs.html">Blogs</a>
+          <a href="notes.html">Notes</a>
+        </nav>
+      </div>
+    </header>
 
-    <div class="page-header">
-      <h1>Publications</h1>
-    </div>
-
-    <div class="card">
-
-      <!-- ── ADD NEW PAPERS BELOW THIS LINE ── -->
-      <!-- Copy one <div class="pub-item">…</div> block and fill in the details -->
-
-      <div class="pub-item">
-        <p class="pub-venue">ICML 2026</p>
-        <a href="#" class="pub-title">
-          Blending Neural Control Density Functions for Stabilization and Safety
-        </a>
-        <p class="pub-authors"><strong>Sahil Chaudhary</strong>, Chaitanya Murti, Chiranjib Bhattacharyya</p>
-        <div class="pub-links">
-          <a href="https://icml.cc/virtual/2026/poster/64872">Paper</a>
-          <a href="NCDF_Project/index.html">Project Page</a>
-        </div>
+    <main class="wrap">
+      <div class="page-head">
+        <p class="eyebrow">Papers &amp; preprints</p>
+        <h1>Publications</h1>
       </div>
 
-      <!-- ── END PAPERS ── -->
+      <section class="section-block">
+        <div class="panel">
 
-    </div>
+          <!-- ── ADD NEW PAPERS BELOW THIS LINE ── -->
+          <!-- Copy one <div class="pub-item">…</div> block and fill in the details -->
 
+          <div class="pub-item">
+            <p class="pub-venue"><strong>ICML 2026</strong></p>
+            <a class="pub-title">
+              Blending Neural Control Density Functions for Stabilization and Safety
+            </a>
+            <p class="pub-authors"><strong>Sahil Chaudhary</strong>, Chaitanya Murti, Chiranjib Bhattacharyya</p>
+            <div class="pub-links">
+              <a href="https://icml.cc/virtual/2026/poster/64872">Paper</a>
+              <a href="NCDF_Project/index.html">Project Page</a>
+            </div>
+          </div>
+
+          <!-- ── END PAPERS ── -->
+
+        </div>
+      </section>
+    </main>
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>

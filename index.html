@@ -4,130 +4,110 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sahil Chaudhary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <nav>
-    <a href="index.html" class="nav-name">Sahil Chaudhary</a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">About</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="blogs.html">Blogs</a></li>
-      <li><a href="notes.html">Notes</a></li>
-    </ul>
-  </nav>
+  <div class="grid-layer" aria-hidden="true"></div>
+  <div class="grain-layer" aria-hidden="true"></div>
 
   <div class="page">
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="index.html">Sahil Chaudhary<span class="dot">.</span></a>
+        <nav class="menu" aria-label="Primary">
+          <a href="index.html" aria-current="page">About</a>
+          <a href="publications.html">Publications</a>
+          <a href="blogs.html">Blogs</a>
+          <a href="notes.html">Notes</a>
+        </nav>
+      </div>
+    </header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-text">
-        <p class="role">Masters Student, IISc Bengaluru</p>
-        <p>
-          I pursued my undergraduate in <strong>Mathematics and Computing</strong> at the
-          Indian Institute of Science (IISc), Bengaluru. I was fortunate to have been
-          advised by <strong>Prof. <a href="https://mllab.csa.iisc.ac.in/">Chiranjib Bhattacharyya</a> </strong> during my B.Tech Project,
-          and I am currently working under <strong>Prof. Chiranjib Bhattacharyya</strong> and <strong>Prof. <a href="https://anantrajml.github.io/">Anant Raj</a> </strong> on various topics. In particular, I am exploring performative prediction and the relationship between optimization algorithms, sampling & dynamical systems.
-        </p>
-        <p>
-          My research interests lie in <strong>Machine Learning, optimization, statistics,
-          and control theory</strong>. While my interests and work is primarily theoretical, I actively
-          engage with ML applications through internships and collaborations. The primary goal is solve real-world problems while also contributing to the theoretical understanding of ML.
-        </p>
-        <div class="contact-links">
-          <a href="https://www.linkedin.com/in/sahil-chaudhary-a479a2197/" target="_blank">LinkedIn</a>
-          <a href="https://x.com/sahilch30832446" target="_blank">X (Twitter)</a>
-          <a href="https://scholar.google.com/citations?user=_QTDV50AAAAJ&hl=en&authuser=1" target="_blank">Google Scholar</a>
-          <a href="mailto:sahilc@iisc.ac.in">sahilc@iisc.ac.in</a>
+    <main class="wrap">
+      <!-- HERO -->
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Masters Student &middot; IISc Bengaluru</p>
+
+          <div class="bio">
+            <p>I pursued my undergraduate in <strong>Mathematics and Computing</strong> at the Indian Institute of Science (IISc), Bengaluru. I was fortunate to have been advised by <span class="name"><a class="link" href="https://mllab.csa.iisc.ac.in/">Prof. Chiranjib Bhattacharyya</a></span> during my B.Tech Project, and I am currently working under <span class="name">Prof. Chiranjib Bhattacharyya</span> and <span class="name"><a class="link" href="https://anantrajml.github.io/">Prof. Anant Raj</a></span> on various topics. In particular, I am exploring performative prediction and the relationship between optimization algorithms, sampling &amp; dynamical systems.</p>
+            <p>My research interests lie in <strong>Machine Learning, optimization, statistics, and control theory</strong>. While my interests and work are primarily theoretical, I actively engage with ML applications through internships and collaborations. The primary goal is to solve real-world problems while also contributing to the theoretical understanding of ML.</p>
+          </div>
+
+          <div class="pills">
+            <a class="pill" href="https://www.linkedin.com/in/sahil-chaudhary-a479a2197/" target="_blank">LinkedIn</a>
+            <a class="pill" href="https://x.com/sahilch30832446" target="_blank">X (Twitter)</a>
+            <a class="pill" href="https://scholar.google.com/citations?user=_QTDV50AAAAJ&hl=en&authuser=1" target="_blank">Google Scholar</a>
+            <a class="pill" href="mailto:sahilc@iisc.ac.in">sahilc@iisc.ac.in</a>
+          </div>
         </div>
-      </div>
-      <!-- Replace 'photo.jpg' with your actual photo filename -->
-      <img src="photos/photo1.jpg" alt="Sahil Chaudhary" class="hero-photo" />
-    </section>
 
-    <!-- NEWS -->
-    <div class="card">
-      <h2>News</h2>
-     
-      <div class="news-item">
-        <span class="news-tag">Teaching</span>
-        <span class="news-text">
-          Helping <strong>Prof. Anant Raj</strong>
-          with the graduate course on <em>E0 232 - Probability and Statistics</em> (AUG-DEC 2026).
-        </span>
+        <figure class="figure">
+          <div class="frame">
+            <img class="portrait" src="photos/photo1.jpg" alt="Sahil Chaudhary" />
+          </div>
+        </figure>
       </div>
 
-      <div class="news-item">
-        <span class="news-tag red">Award</span>
-        <span class="news-text">
-          Awarded <strong>Dr. Ubrani and Lakshmi Venkataram Travel Grant</strong> by <a href="https://odaa.iisc.ac.in/ug-travel-grants/">ODAA</a>.
-        </span>
-      </div>
-      <div class="news-item">
-        <span class="news-tag red">ICML 2026</span>
-        <span class="news-text">
-          Our work: <a href="https://icml.cc/virtual/2026/poster/64872"> Blending Neural Control Density Functions for Stabilization and Safety </a> got accepted at
-          <span class="highlight">ICML 2026</span>!
-        </span>
-      </div>
+      <!-- NEWS -->
+      <section class="news">
+       <div class="panel">
+        <div class="section-head">
+          <h2>News</h2>
+          <span class="kicker">// recent</span>
+        </div>
 
-      <div class="news-item">
-        <span class="news-tag">B.Tech Project</span>
-        <span class="news-text">
-          Defended my B.Tech Project on Control Synthesis under <strong>Prof. Chiranjib Bhattacharyya</strong>.
-          Panel: Prof. <a href="https://ece.iisc.ac.in/~aditya/">Aditya Gopalan</a> and Prof. <a href="https://www.shishirny.com/">Shishir N. Y. Kolathaya</a>.
-        </span>
-      </div>
+        <ul class="log">
+          <li class="reveal">
+            <span class="tag blue">Teaching</span>
+            <p class="entry">Helping <strong>Prof. Anant Raj</strong> with the graduate course on <em>E0 232 — Probability and Statistics</em>. <span class="when">[Aug-Dec 2026]</span></p>
+          </li>
+          <li class="reveal">
+            <span class="tag red">Award</span>
+            <p class="entry">Awarded the <strong>Dr. Ubrani and Lakshmi Venkataram Travel Grant</strong> by <a class="link" href="https://odaa.iisc.ac.in/ug-travel-grants/">ODAA</a>. <span class="when">[May 2026]</span></p>
+          </li>
+          <li class="reveal">
+            <span class="tag red">ICML 2026</span>
+            <p class="entry">Our work <a class="link" href="https://icml.cc/virtual/2026/poster/64872">Blending Neural Control Density Functions for Stabilization and Safety</a> was accepted at <strong>ICML 2026</strong>. <span class="when">[May 2026]</span></p>
+          </li>
+          <li class="reveal">
+            <span class="tag blue">Teaching</span>
+            <p class="entry">Helping <strong>Prof. Aditya Gopalan</strong> and <strong>Prof. Shishir N. Y. Kolathaya</strong> with the undergraduate course on <em>UMC 203 — Introduction to Artificial Intelligence and Machine Learning</em>. <span class="when">[Jan-May 2026]</span></p>
+          </li>
+          <li class="reveal">
+            <span class="tag ink">Internship</span>
+            <p class="entry">Joined <strong>HP Inc. (AI Research)</strong> under <a class="link" href="https://scholar.google.com/citations?user=daDIHuUAAAAJ&hl=en">Niranjan Damera Venkata</a>. <span class="when">[May-Jul 2025]</span></p>
+          </li>
+          <li class="reveal">
+            <span class="tag blue">Teaching</span>
+            <p class="entry">Helped <strong>Prof. Chiranjib Bhattacharyya</strong> and <strong>Prof. Shishir N. Y. Kolathaya</strong> with the undergraduate course on <em>UMC 203 — Introduction to Artificial Intelligence and Machine Learning</em>. <span class="when">[Jan-Apr 2025]</span></p>
+          </li>
+          <li class="reveal">
+            <span class="tag red">Poster</span>
+            <p class="entry">Invited to present a poster of our coursework project on <strong>SoccArt</strong> (Soccer Game Analysis) at <a class="link" href="https://drive.google.com/file/d/1hirgK0zY9FAe-H6pgL078__mzRMjhYb8/view?usp=sharing">CASML 2024</a>.</p>
+          </li>
+          <li class="reveal">
+            <span class="tag ink">Internship</span>
+            <p class="entry">Joined <strong>RedTree.ai</strong> (London-based startup) as an AI Research Intern. <span class="when">[May-Jul 2024]</span></p>
+          </li>
+        </ul>
+       </div>
+      </section>
 
-      <div class="news-item">
-        <span class="news-tag">Teaching</span>
-        <span class="news-text">
-          Helping <strong>Prof. Aditya Gopalan</strong> and <strong>Prof. Shishir N. Y. Kolathaya</strong>
-          with the undergraduate course on <em>UMC 203 - Introduction to Artificial Intelligence and Machine Learning</em> (JAN-MAY 2026).
-        </span>
-      </div>
-
-      <div class="news-item">
-        <span class="news-tag dark">Internship</span>
-        <span class="news-text">
-          Joined <strong>HP Inc. (AI Research)</strong> under <strong><a href="https://scholar.google.com/citations?user=daDIHuUAAAAJ&hl=en">Niranjan Damera Venkata</a></strong> (MAY-JULY 2025).
-        </span>
-      </div>
-
-      <div class="news-item">
-        <span class="news-tag">Teaching</span>
-        <span class="news-text">
-          Helped <strong>Prof. Chiranjib Bhattacharyya</strong> and <strong>Prof. Shishir N. Y. Kolathaya</strong>
-          with the undergraduate course on <em>UMC 203 - Introduction to Artificial Intelligence and Machine Learning</em> (JAN-APRIL 2025).
-        </span>
-      </div>
-
-      <div class="news-item">
-        <span class="news-tag red">Poster</span>
-        <span class="news-text">
-          Invited to present poster of our coursework project on SoccArt (Soccer Game Analysis) at <strong><a href="https://drive.google.com/file/d/1hirgK0zY9FAe-H6pgL078__mzRMjhYb8/view?usp=sharing"> CASML 2024</a></strong>.
-        </span>
-      </div>
-
-      <div class="news-item">
-        <span class="news-tag dark">Internship</span>
-        <span class="news-text">
-          Joined <strong>RedTree.ai</strong> (London-based startup) as AI Research Intern (MAY-JULY 2024).
-        </span>
-      </div>
-
-    </div>
-
-    <!-- A rough idea about to not hesitate sending any mails for any exciting problem statements or doubts in any of my work or code -->
-    <div class="card">
-      <p>>>I quite enjoy teaching and actively give talks around the papers and problems I have been working on.</p>
-      <p>
-        >>Please do not hesitate to contact me in case you have any doubts or questions regarding my work, code, or any exciting problem statements. I am always open to discussions and collaborations!
-      </p>
-    </div>
-
+      <!-- NOTE -->
+      <section class="note">
+        <div class="note-card">
+          <p><span class="arw">&gt;&gt;</span><span>I quite enjoy teaching and actively give talks around the papers and problems I have been working on.</span></p>
+          <p><span class="arw">&gt;&gt;</span><span>Outside work, I like movies a lot and believe films are fantastic way of story telling. I can speak multiple languages including Nepali, Maithali, English and Hindi. I am currently trying to learn Mandarin.</span></p>
+          <p><span class="arw">&gt;&gt;</span><span>Please do not hesitate to contact me if you have any doubts or questions about my work, code, or any exciting problem statements. I am always open to discussions and collaborations.</span></p>
+        </div>
+      </section>
+    </main>
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>

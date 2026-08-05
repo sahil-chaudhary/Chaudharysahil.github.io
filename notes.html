@@ -4,70 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Notes · Sahil Chaudhary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <nav>
-    <a href="index.html" class="nav-name">Sahil Chaudhary</a>
-    <ul class="nav-links">
-      <li><a href="index.html">About</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="blogs.html">Blogs</a></li>
-      <li><a href="notes.html" class="active">Notes</a></li>
-    </ul>
-  </nav>
+  <div class="grid-layer" aria-hidden="true"></div>
+  <div class="grain-layer" aria-hidden="true"></div>
 
   <div class="page">
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="index.html">Sahil Chaudhary<span class="dot">.</span></a>
+        <nav class="menu" aria-label="Primary">
+          <a href="index.html">About</a>
+          <a href="publications.html">Publications</a>
+          <a href="blogs.html">Blogs</a>
+          <a href="notes.html" aria-current="page">Notes</a>
+        </nav>
+      </div>
+    </header>
 
-    <div class="page-header">
-      <h1>Notes</h1>
-    </div>
-
-    <div class="card">
-
-      <!-- ── SECTION: COURSES ── -->
-      <!-- Add a new <div class="notes-section"> for each course/topic    -->
-      <!-- Each note links to a PDF file inside the /notes/ folder         -->
-<!-- 
-      <div class="notes-section">
-        <h3>Machine Learning Theory</h3>
-
-        <!-- EXAMPLE NOTE — delete or replace -->
-        <!-- <div class="note-item">
-          <a href="notes/ml-theory-lec1.pdf" class="note-title" target="_blank">
-            Lecture 1 · Statistical Learning Framework
-          </a>
-          <span class="note-meta">PDF · 2025</span>
-        </div>
-
-        <div class="note-item">
-          <a href="notes/ml-theory-lec2.pdf" class="note-title" target="_blank">
-            Lecture 2 · PAC Learning and VC Dimension
-          </a>
-          <span class="note-meta">PDF · 2025</span>
-        </div>
-
-      </div> --> 
-
-      <!-- ── SECTION: OPTIMIZATION ── -->
-      <div class="notes-section">
-        <h3>Optimization</h3>
-        <p>Will update later!</p>
-        <!-- <div class="note-item">
-          <a href="notes/opt-convex.pdf" class="note-title" target="_blank">
-            Convex Optimization — Lecture Notes
-          </a>
-          <span class="note-meta">PDF · 2024</span>
-        </div> -->
-
+    <main class="wrap">
+      <div class="page-head">
+        <h1>Notes</h1>
       </div>
 
-      <!-- ── ADD MORE SECTIONS ABOVE THIS LINE ── -->
+      <section class="section-block">
+        <div class="panel">
 
-    </div>
+          <!-- ── SECTION: COURSES ── -->
+          <!-- Add a new <div class="notes-section"> for each course/topic    -->
+          <!-- Each note links to a PDF file inside the /notes/ folder         -->
+          <!--
+          <div class="notes-section">
+            <h3>Machine Learning Theory</h3>
 
+            <!-- EXAMPLE NOTE — delete or replace -->
+            <!-- <div class="note-item">
+              <a href="notes/ml-theory-lec1.pdf" class="note-title" target="_blank">
+                Lecture 1 · Statistical Learning Framework
+              </a>
+              <span class="note-meta">PDF · 2025</span>
+            </div>
+
+            <div class="note-item">
+              <a href="notes/ml-theory-lec2.pdf" class="note-title" target="_blank">
+                Lecture 2 · PAC Learning and VC Dimension
+              </a>
+              <span class="note-meta">PDF · 2025</span>
+            </div>
+
+          </div> -->
+
+          <!-- ── SECTION: OPTIMIZATION ── -->
+          <div class="notes-section">
+            <h3>Optimization</h3>
+            <p class="placeholder">Will update later!</p>
+            <!-- <div class="note-item">
+              <a href="notes/opt-convex.pdf" class="note-title" target="_blank">
+                Convex Optimization — Lecture Notes
+              </a>
+              <span class="note-meta">PDF · 2024</span>
+            </div> -->
+          </div>
+
+          <!-- ── ADD MORE SECTIONS ABOVE THIS LINE ── -->
+
+        </div>
+      </section>
+    </main>
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>

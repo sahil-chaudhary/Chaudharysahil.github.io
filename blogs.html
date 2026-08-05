@@ -4,91 +4,99 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blogs · Sahil Chaudhary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <nav>
-    <a href="index.html" class="nav-name">Sahil Chaudhary</a>
-    <ul class="nav-links">
-      <li><a href="index.html">About</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="blogs.html" class="active">Blogs</a></li>
-      <li><a href="notes.html">Notes</a></li>
-    </ul>
-  </nav>
+  <div class="grid-layer" aria-hidden="true"></div>
+  <div class="grain-layer" aria-hidden="true"></div>
 
   <div class="page">
-
-    <div class="page-header">
-      <h1>Blogs</h1>
-    </div>
-
-    <div class="card">
-      <div class="blog-grid">
-
-        <!-- ── ADD NEW BLOG POSTS BELOW THIS LINE ── -->
-        <!-- Each post is a separate HTML file in the /blogs/ folder.        -->
-        <!-- Copy one <a class="blog-card"> block, update the href and text. -->
-
-        <!-- EXAMPLE POST — delete or replace this -->
-        
-        <!-- <a href="blogs/density_functions.html" class="blog-card">
-          <p class="blog-date">June 2026</p>
-          <p class="blog-title">Neural Control Density Functions</p>
-          <p class="blog-excerpt">
-            An overview of our ICML 2026 paper on blending neural control density functions for stabilization and safety.
-          </p>
-          <div class="blog-tags">
-            <span class="tag">Control Theory</span>
-            <span class="tag">ML</span>
-            <span class="tag">ICML 2026</span>
-          </div>
-        </a> -->
-        
-        <a href="blogs/example-post.html" class="blog-card">
-          <p class="blog-date">Aug 2026</p>
-          <p class="blog-title">Control Lyapunov Functions and Barrier Functions</p>
-          <p class="blog-excerpt">
-            An informal idea on Control Lyapunov function and Barrier Functions.
-          </p>
-          <div class="blog-tags">
-            <span class="tag">Control Theory</span>
-            <span class="tag">Safety</span>
-          </div>
-        </a>
-
-        <a href="blogs/ICML_2026_Korea.html" class="blog-card">
-          <p class="blog-date">Aug 2026</p>
-          <p class="blog-title">ICML 2026: Notes from Seoul</p>
-          <p class="blog-excerpt">
-            A mostly non-technical set of notes from my first conference.
-          </p>
-          <div class="blog-tags">
-            <span class="tag">Conference Notes</span>
-          </div>
-        </a>
-
-        <a href="blogs/soccart.html" class="blog-card">
-          <p class="blog-date">Aug 2026</p>
-          <p class="blog-title">SoccArt: A Pipeline for Soccer Game Analysis</p>
-          <p class="blog-excerpt">
-            A computer vision pipeline for soccer analytics, presented as a poster at CASML 2024 on invitation
-            from Prof. Deepak Subramani.
-          </p>
-          <div class="blog-tags">
-            <span class="tag">Computer Vision</span>
-            <span class="tag">Applied ML</span>
-            <span class="tag">CASML 2024</span>
-          </div>
-        </a>
-
-        <!-- ── END BLOG POSTS ── -->
-
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="index.html">Sahil Chaudhary<span class="dot">.</span></a>
+        <nav class="menu" aria-label="Primary">
+          <a href="index.html">About</a>
+          <a href="publications.html">Publications</a>
+          <a href="blogs.html" aria-current="page">Blogs</a>
+          <a href="notes.html">Notes</a>
+        </nav>
       </div>
-    </div>
+    </header>
 
+    <main class="wrap">
+      <div class="page-head">
+        <h1>Blogs</h1>
+      </div>
+
+      <section class="section-block">
+        <div class="blog-grid">
+
+          <!-- ── ADD NEW BLOG POSTS BELOW THIS LINE ── -->
+          <!-- Each post is a separate HTML file in the /blogs/ folder.        -->
+          <!-- Copy one <a class="blog-card"> block, update the href and text. -->
+
+          <!-- EXAMPLE POST — delete or replace this -->
+
+          <!-- <a href="blogs/density_functions.html" class="blog-card reveal">
+            <p class="blog-date">June 2026</p>
+            <p class="blog-title">Neural Control Density Functions</p>
+            <p class="blog-excerpt">
+              An overview of our ICML 2026 paper on blending neural control density functions for stabilization and safety.
+            </p>
+            <div class="blog-tags">
+              <span class="tag-pill">Control Theory</span>
+              <span class="tag-pill">ML</span>
+              <span class="tag-pill">ICML 2026</span>
+            </div>
+          </a> -->
+<!-- 
+          <a href="blogs/example-post.html" class="blog-card reveal">
+            <p class="blog-date">Aug 2026</p>
+            <p class="blog-title">Control Lyapunov Functions and Barrier Functions</p>
+            <p class="blog-excerpt">
+              An informal idea on Control Lyapunov function and Barrier Functions.
+            </p>
+            <div class="blog-tags">
+              <span class="tag-pill">Control Theory</span>
+              <span class="tag-pill">Safety</span>
+            </div>
+          </a> -->
+
+          <a href="blogs/ICML_2026_Korea.html" class="blog-card reveal">
+            <p class="blog-date">Aug 2026</p>
+            <p class="blog-title">ICML 2026: Notes from Seoul</p>
+            <p class="blog-excerpt">
+              A mostly non-technical set of notes from my first conference.
+            </p>
+            <div class="blog-tags">
+              <span class="tag-pill">Conference Notes</span>
+            </div>
+          </a>
+
+          <a href="blogs/soccart.html" class="blog-card reveal">
+            <p class="blog-date">Aug 2026</p>
+            <p class="blog-title">SoccArt: A Pipeline for Soccer Game Analysis</p>
+            <p class="blog-excerpt">
+              A computer vision pipeline for soccer analytics, presented as a poster at CASML 2024 on invitation
+              from Prof. Deepak Subramani.
+            </p>
+            <div class="blog-tags">
+              <span class="tag-pill">Computer Vision</span>
+              <span class="tag-pill">Applied ML</span>
+              <span class="tag-pill">CASML 2024</span>
+            </div>
+          </a>
+
+          <!-- ── END BLOG POSTS ── -->
+
+        </div>
+      </section>
+    </main>
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>

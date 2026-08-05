@@ -4,32 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ICML 2026: Notes from Seoul · Sahil Chaudhary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
   <style>
     .post-header {
-      padding: 36px 0 28px;
+      padding: 56px 0 32px;
     }
     .post-header .post-meta {
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.5);
-      margin-bottom: 12px;
+      color: var(--ink-faint);
+      margin-bottom: 14px;
     }
     .post-header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      line-height: 1.25;
+      font-family: var(--display);
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
       max-width: 700px;
-      color: #0d0d0d;
+      color: var(--ink);
     }
     .post-header .post-dek {
-      margin-top: 12px;
-      font-size: 0.95rem;
+      margin-top: 14px;
+      font-family: var(--serif);
+      font-size: 0.98rem;
       font-style: italic;
-      color: #555;
+      color: var(--ink-faint);
       max-width: 640px;
     }
     .post-hero {
@@ -40,48 +47,57 @@
       max-height: 460px;
       object-fit: cover;
       object-position: 50% 30%;
-      border-radius: 10px;
+      border-radius: 14px;
       display: block;
+      border: 1px solid var(--line-strong);
     }
     .post-hero figcaption {
-      font-size: 0.8rem;
-      color: #777;
-      margin-top: 8px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-faint);
+      margin-top: 10px;
       text-align: center;
     }
     .post-body {
-      font-size: 0.95rem;
-      line-height: 1.9;
-      color: #1a1a1a;
+      font-family:  Arial, Helvetica, sans-serif;
+      font-size: 0.98rem;
+      line-height: 1.85;
+      color: var(--ink-soft);
     }
     .post-body h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin: 32px 0 14px;
-      color: #0d0d0d;
+      font-family:  Arial, Helvetica, sans-serif;
+      font-weight: 600;
+      font-size: 1.35rem;
+      margin: 34px 0 14px;
+      color: var(--ink);
     }
     .post-body p { margin-bottom: 18px; }
     .post-body ul { margin: 0 0 18px 22px; }
     .post-body li { margin-bottom: 8px; }
+    .post-body strong { color: var(--ink); }
+    .post-body a { color: var(--pen-blue); text-decoration: none; border-bottom: 1.5px solid color-mix(in srgb, var(--pen-blue) 35%, transparent); }
+    .post-body a:hover { border-bottom-color: var(--pen-blue); }
     .post-body blockquote {
-      border-left: 3px solid #1400C8;
+      border-left: 3px solid var(--pen-blue);
       padding-left: 20px;
-      color: #555;
+      color: var(--ink-faint);
       font-style: italic;
       margin: 24px 0;
     }
     .post-body figure {
-      margin: 24px 0;
+      margin: 26px 0;
     }
     .post-body figure img {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 12px;
       display: block;
+      border: 1px solid var(--line-strong);
     }
     .post-body figcaption {
-      font-size: 0.8rem;
-      color: #777;
-      margin-top: 8px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-faint);
+      margin-top: 10px;
       text-align: center;
     }
     .photo-strip {
@@ -94,14 +110,16 @@
       width: 100%;
       height: 260px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 10px;
       display: block;
+      border: 1px solid var(--line-strong);
     }
     .photo-strip figcaption {
       grid-column: 1 / -1;
-      font-size: 0.8rem;
-      color: #777;
-      margin-top: 4px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-faint);
+      margin-top: 8px;
       text-align: center;
       font-style: italic;
     }
@@ -113,36 +131,42 @@
     }
     .back-link {
       display: inline-block;
+      font-family: var(--mono);
       margin-bottom: 24px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.7);
+      color: var(--ink-soft);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .back-link:hover { color: rgb(69, 9, 160); }
+    .back-link:hover { color: var(--pen-blue); }
   </style>
 </head>
 <body>
-
-  <nav>
-    <a href="../index.html" class="nav-name">Sahil Chaudhary</a>
-    <ul class="nav-links">
-      <li><a href="../index.html">About</a></li>
-      <li><a href="../publications.html">Publications</a></li>
-      <li><a href="../blogs.html" class="active">Blogs</a></li>
-      <li><a href="../notes.html">Notes</a></li>
-    </ul>
-  </nav>
+  <div class="grid-layer" aria-hidden="true"></div>
+  <div class="grain-layer" aria-hidden="true"></div>
 
   <div class="page">
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="../index.html">Sahil Chaudhary<span class="dot">.</span></a>
+        <nav class="menu" aria-label="Primary">
+          <a href="../index.html">About</a>
+          <a href="../publications.html">Publications</a>
+          <a href="../blogs.html" aria-current="page">Blogs</a>
+          <a href="../notes.html">Notes</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
 
     <a href="../blogs.html" class="back-link">← Back to Blogs</a>
 
     <div class="post-header">
-      <p class="post-meta">Aug 2026 · Conference Notes, ICML 2026, Research Life</p>
+      <p class="post-meta">Aug 2026 · Conference Notes</p>
       <h1>ICML 2026: Notes from Seoul</h1>
       <p class="post-dek">Seoul, 2026. A mostly non-technical set of notes from my first conference.</p>
     </div>
@@ -151,78 +175,44 @@
       <img src="../photos/icml_2026/icml.jpeg" alt="At ICML 2026 in Seoul" />
     </figure>
 
-    <div class="card">
+    <section class="section-block" style="padding-top:0;">
+    <div class="panel">
       <div class="post-body">
 
         <p>
-          I recently went to Seoul to attend ICML 2026, my first conference. I had been meaning to write about it
-          for a while, but the same old story of procrastination kept winning. I like to think of myself as a
-          fairly lazy person, the kind who would rather spend most of his time listening to music or rewatching
-          something he has already seen. Lately, though, a lot of coffee and a return to my project on Large
-          Language Models have left me with more energy than usual, and with the experiments running quietly in
-          the background on few small GPUs, more free time too. My laziness no longer has any upper hand and massive coffee intake with a lot of free time has taken over. So here we are :-) .
+          I recently went to Seoul to attend ICML 2026, my first conference. I had been meaning to write about it for a while, but the same old story of procrastination kept winning. I like to think of myself as a fairly lazy person, the kind who would rather spend most of his time listening to music or rewatching something he has already seen. Lately, though, a lot of coffee and a return to my project on Large Language Models have left me with more energy than usual, and with the experiments running quietly in the background on few small GPUs, more free time too. My laziness no longer has any upper hand and massive coffee intake with a lot of free time has taken over. So here we are :-) .
         </p>
 
         <p>
-          I should warn you that my writing is a work in progress, which is in fact one of the reasons I started
-          blogging at all. This post will stay mostly non-technical. It is less about the papers themselves and
-          more about how the conference changed the way I think about doing research, and about one question it
-          left me circling: how do you balance sharpening your mathematical tools against staying genuinely
-          engaged with a problem? I do not have an answer yet and the post is mostly about why I am asking the question, but I hope it will be useful to someone else who is also circling it.
+          I should warn you that my writing is a work in progress, which is in fact one of the reasons I started blogging at all. This post will stay mostly non-technical. It is less about the papers themselves and more about how the conference changed the way I think about doing research, and about one question it left me circling: how do you balance sharpening your mathematical tools against staying genuinely engaged with a problem? I do not have an answer yet and the post is mostly about why I am asking the question, but I hope it will be useful to someone else who is also circling it.
         </p>
 
         <p>
-          I was in Seoul to present work that Chaitanya Murti (or shall I say Dr. Chaitanya Murti, congratulations
-          Chai for your thesis defense), Prof. Chiranjib Bhattacharyya, and I did on
+          I was in Seoul to present work that Chaitanya Murti (or shall I say Dr. Chaitanya Murti, congratulations Chai for your thesis defense), Prof. Chiranjib Bhattacharyya, and I did on
           <a href="../NCDF_Project/index.html">synthesizing Neural Density Controllers</a>. Please feel free to browse through the project page before I start my notes.
         </p>
 
         <h2>The talks</h2>
         <p>
-          The first day was the easiest to love, partly because the talks were excellent and partly because there
-          were no poster sessions to survive. I attended multiple talks during the conference but the I particularly remember the ones on the first day. Gautam Kamath spoke on
-          machine unlearning at scale, which I really enjoyed and would like to think more on implications for AI safety. The one that stayed closest to me was Mark Schmidt's tutorial on optimization.
+          The first day was the easiest to love, partly because the talks were excellent and partly because there were no poster sessions to survive. I attended multiple talks during the conference but the I particularly remember the ones on the first day. Gautam Kamath spoke on machine unlearning at scale, which I really enjoyed and would like to think more on implications for AI safety. The one that stayed closest to me was Mark Schmidt's tutorial on optimization.
         </p>
         <p>
-          I spent a good part of my undergrad on optimization problems, convinced that a solid grasp of the field
-          would be one of the more durable skills for a machine learning researcher. The more I read, though, the
-          more it seemed that theory and practice did not agree with each other. For example: I have spend quite some time in proving the convergence of stochastic gradient method and its variants believing everyone used SGD in practice. But at the end of the day, most machine learning engineer uses torch.optim.Adam and achieve the best model possible (most of the time) which still does not have proof for non convex loss function. Schmidt did not fully pull me
-          back into optimization, but he did offer a small thread of hope: the idea that distinguishing a
-          <strong>gradient-dominated</strong> regime from a <strong>noise-dominated</strong> one might give us some
-          intuition for why methods like Adam, Shampoo, and Muon work as well as they do. Considering I promised my kind readers to make this a non-technical blog, I will spare you the details, but if optimization is your thing,
-          <a href="https://www.cs.ubc.ca/~schmidtm/Documents/2026_ICML_Tutorial.pdf" target="_blank">his slides</a>
+          I spent a good part of my undergrad on optimization problems, convinced that a solid grasp of the field would be one of the more durable skills for a machine learning researcher. The more I read, though, the more it seemed that theory and practice did not agree with each other. For example: I have spend quite some time in proving the convergence of stochastic gradient method and its variants believing everyone used SGD in practice. But at the end of the day, most machine learning engineer uses torch.optim.Adam and achieve the best model possible (most of the time) which still does not have proof for non convex loss function. Schmidt did not fully pull me back into optimization, but he did offer a small thread of hope: the idea that distinguishing a <strong>gradient-dominated</strong> regime from a <strong>noise-dominated</strong> one might give us some intuition for why methods like Adam, Shampoo, and Muon work as well as they do. Considering I promised my kind readers to make this a non-technical blog, I will spare you the details, but if optimization is your thing, <a href="https://www.cs.ubc.ca/~schmidtm/Documents/2026_ICML_Tutorial.pdf" target="_blank">his slides</a>
           are worth an afternoon.
         </p>
 
         <h2>Too many posters</h2>
         <p>
-          Then came the posters. I do not think I understood what 6000 accepted papers actually meant until I
-          walked into the hall. I had a grand plan: visit every poster, talk to every author, absorb everything
-          happening in the corners of the field I had drifted away from. In my defense, I get excited easily, and
-          it shows in the projects I take on. It also, apparently, shows in my poor conference planning.
+          Then came the posters. I do not think I understood what 6000 accepted papers actually meant until I walked into the hall. I had a grand plan: visit every poster, talk to every author, absorb everything happening in the corners of the field I had drifted away from. In my defense, I get excited easily, and it shows in the projects I take on. It also, apparently, shows in my poor conference planning.
         </p>
         <p>
-          The hall had something like 700 posters per session. I quickly downgraded the plan from "every poster"
-          to "walk each row and stop wherever something catches my eye," and even that was too ambitious. By the
-          end of the first session I had not covered even a quarter of the room, and I had not reached a single
-          poster I had actually come to see, including ones whose papers I had already read. What I had instead
-          was a headache and no desire to do it again.
+          The hall had something like 700 posters per session. I quickly downgraded the plan from "every poster" to "walk each row and stop wherever something catches my eye," and even that was too ambitious. By the end of the first session I had not covered even a quarter of the room, and I had not reached a single poster I had actually come to see, including ones whose papers I had already read. What I had instead was a headache and no desire to do it again.
         </p>
         <p>
-          So I did the obvious thing I should have done from the start (I blame my poor planning skills). Each
-          night after that, I sat down and made a list of the specific posters I wanted to visit the next day, the
-          ones tied to problems I work on or want to. That fixed almost everything. I enjoyed talking to each
-          author, and I liked that nearly every presenter was visibly excited about their own work. I left with a
-          long reading list I am not sure I will finish (and a lot of pictures of posters to remind myself to read
-          those papers in detail).
+          So I did the obvious thing I should have done from the start (I blame my poor planning skills). Each night after that, I sat down and made a list of the specific posters I wanted to visit the next day, the ones tied to problems I work on or want to. That fixed almost everything. I enjoyed talking to each author, and I liked that nearly every presenter was visibly excited about their own work. I left with a long reading list I am not sure I will finish (and a lot of pictures of posters to remind myself to read those papers in detail).
         </p>
         <p>
-          The scale left me uneasy. The conference has grown so large that it is nearly impossible to have a 
-          conversation with someone outside your own niche. Forget conversation; even just visiting the posters
-          you care about is a challenge, as my headache and a good chunk of that day's Twitter can confirm. I
-          believe my grand plan did not account for the number of papers accepted this year. A lesson learned for
-          the upcoming conferences, and something to be warned about for first-time attendees of conferences like
-          ICML and NeurIPS.
+          The scale left me uneasy. The conference has grown so large that it is nearly impossible to have a conversation with someone outside your own niche. Forget conversation; even just visiting the posters you care about is a challenge, as my headache and a good chunk of that day's Twitter can confirm. I believe my grand plan did not account for the number of papers accepted this year. A lesson learned for the upcoming conferences, and something to be warned about for first-time attendees of conferences like ICML and NeurIPS.
         </p>
 
         <figure class="photo-strip">
@@ -234,14 +224,10 @@
 
         <h2>What made a paper worth it</h2>
         <p>
-          Here is the thing I keep coming back to. The posters and conversations I enjoyed most had almost nothing
-          to do with how technical or fashionable they were. They were the ones where the author had a clear
-          motivation, some real grasp of the surrounding literature, and, above all, genuine engagement with the
-          problem. We are not in the business of pure mathematics. I like to think of machine learning as a
-          marriage between applied math and algorithms.
+          Here is the thing I keep coming back to. The posters and conversations I enjoyed most had almost nothing to do with how technical or fashionable they were. They were the ones where the author had a clear motivation, some real grasp of the surrounding literature, and, above all, genuine engagement with the problem. We are not in the business of pure mathematics. I like to think of machine learning as a marriage between applied math and algorithms.
         </p>
         <p>
-          Paper which either has a good exploration factor or good exploitation factor while having a clear motivation are the ones which stayed with me. By exploration I mean work that pushes the frontier a little, a speed-up, an improvement in accuracy on some class of problems, or an explanation for behavior we did not understand before. By exploitation I mean deliberately choosing a known technique because it genuinely fits the problem. For instance, if I wanted to do test-time adaptation for image generation, I might reach for ODE-based generation over SDEs, not because one is universally better, but because the ODE route buys me simpler analysis and an easier deployment. Either kind of paper can be excellent, but only when the motivation is honest. At this point, you may ask me, "Sahil, this is stupid. Most research fall into two categories either they are exploration or exploitation. You say you have a type but you have mentioned all the kinds possible out there". I do not have a very clear answer for this question but a example of <strong>something</strong> which does not excite me is a paper that staples two ideas together with no real motivation and then goes hunting for an experiment to justify some claimed "advantage." 
+          Paper which either has a good exploration factor or good exploitation factor while having a clear motivation are the ones which stayed with me. By exploration I mean work that pushes the frontier a little, a speed-up, an improvement in accuracy on some class of problems, or an explanation for behavior we did not understand before. By exploitation I mean deliberately choosing a known technique because it genuinely fits the problem. For instance, if I wanted to do test-time adaptation for image generation, I might reach for ODE-based generation over SDEs, not because one is universally better, but because the ODE route buys me simpler analysis and an easier deployment. Either kind of paper can be excellent, but only when the motivation is honest. At this point, you may ask me, "Sahil, this is stupid. Most research fall into two categories either they are exploration or exploitation. You say you have a type but you have mentioned all the kinds possible out there". I do not have a very clear answer for this question but a example of something which does not excite me is a paper that staples two ideas together with no real motivation and then goes hunting for an experiment to justify some claimed "advantage."
         </p>
         <p>
           Two papers from the conference fit this description and are still in my head. One was a theory paper on
@@ -250,23 +236,12 @@
           dimension-free bounds, and it followed that thread cleanly.
           The other was very much an exploitation paper, on
           <a href="https://openreview.net/pdf?id=4YIY66tpvQ" target="_blank">quantization in diffusion
-          models</a>. The problem there is concrete. Quantization is a natural choice when you care about faster
-          inference or tighter memory and compute budgets, but the moment you quantize, you are forced to edit the
-          model. The paper handles this by adding a correction term and then characterizing the resulting
-          numerical error in terms of the quantized model and its network. The first part is fairly simple
-          algebra; the second part earns its conclusions through extensive experiments, and those experiments are
-          what made the large corrections believable. Very different papers, same quality: both know exactly why
-          they exist.
+          models</a>. The problem there is concrete. Quantization is a natural choice when you care about faster inference or tighter memory and compute budgets, but the moment you quantize, you are forced to edit the model. The paper handles this by adding a correction term and then characterizing the resulting numerical error in terms of the quantized model and its network. The first part is fairly simple algebra; the second part earns its conclusions through extensive experiments, and those experiments are what made the large corrections believable. Very different papers, same quality: both know exactly why they exist.
         </p>
 
         <h2>Presenting the poster</h2>
         <p>
-          Presenting my own poster turned out to be the part I enjoyed most, and for a reason I did not expect.
-          People came from very different backgrounds, and for each of them I had to decide, on the spot, which
-          details to drop and which to focus on. That editing, choosing an exposition for a specific listener, is
-          genuinely hard, and I have a new respect for anyone who has mastered it. Chai was there to present
-          alongside me and to split the audience between us, which helped enormously. I am also grateful to the
-          professors and friends who stopped by when we asked them to.
+          Presenting my own poster turned out to be the part I enjoyed most, and for a reason I did not expect. People came from very different backgrounds, and for each of them I had to decide, on the spot, which details to drop and which to focus on. That editing, choosing an exposition for a specific listener, is genuinely hard, and I have a new respect for anyone who has mastered it. Chai was there to present alongside me and to split the audience between us, which helped enormously. I am also grateful to the professors and friends who stopped by when we asked them to.
         </p>
 
         <figure>
@@ -278,88 +253,43 @@
 
         <h2>Weird Dilemma</h2>
         <p>
-          All of my experience at ICML led back to the question I mentioned at the start. To do good work in machine learning, you
-          are expected to have a solid foundation in mathematics and, just as importantly, the ability to bring
-          that rigor to address or solve an actual problem. But the definition of "solid foundation" varies for
-          each person. Ten years ago, most of us would not have guessed that stochastic differential equations
-          (SDEs) would become as central as they are now. Then diffusion models arrived, the theory of SDEs turned
-          out to unify them, and suddenly SDEs became essential for understanding the distribution we are 
-          learning and what properties our models have. Now students are told to learn SDEs and treat them as
-          foundational. Someone else might argue that only ODEs and probability theory belong in the required
-          list, and the rest can be picked up during research (assuming one is working on Generative Modelling using Diffusion models). Thus, the definition depends on the person and the
-          problem. As a student of Mathematics and Computing, my current instinct is to raid the math department
-          and fill my toolbox with everything I can (which I should have done way before, I regret not doing so).
+          All of my experience at ICML led back to the question I mentioned at the start. To do good work in machine learning, you are expected to have a solid foundation in mathematics and, just as importantly, the ability to bring that rigor to address or solve an actual problem. But the definition of "solid foundation" varies for each person. Ten years ago, most of us would not have guessed that stochastic differential equations (SDEs) would become as central as they are now. Then diffusion models arrived, the theory of SDEs turned out to unify them, and suddenly SDEs became essential for understanding the distribution we are learning and what properties our models have. Now students are told to learn SDEs and treat them as foundational. Someone else might argue that only ODEs and probability theory belong in the required list, and the rest can be picked up during research (assuming one is working on Generative Modelling using Diffusion models). Thus, the definition depends on the person and the problem. As a student of Mathematics and Computing, my current instinct is to raid the math department and fill my toolbox with everything I can (which I should have done way before, I regret not doing so).
         </p>
         <p>
-          And here is my actual problem. I have a tendency to get lost in whatever mathematics I am holding and
-          lose sight of the problem I picked it up for (may be loosing the sight of the problem is the general tendency). That is why I am treating my own advice with some caution
-          and taking only three courses this semester, each fairly involved but each giving a coherent set of
-          tools for the analysis of sampling and optimization. To engage with a problem statement, I also need to sit down and run a set of experiments to figure out my own understanding of the topic. This activity consumes a lot of time. But I would also like to take more courses and fill my toolbox. Hence, I still do not know how one is supposed to balance
-          the sharpening and collecting of tools against real engagement with a problem. After this conference,
-          that balance feels like the most important thing. I hope to find it before I start my PhD, and if not,
-          keep trying throughout my research career.
+          And here is my actual problem. I have a tendency to get lost in whatever mathematics I am holding and lose sight of the problem I picked it up for (may be loosing the sight of the problem is the general tendency). That is why I am treating my own advice with some caution and taking only three courses this semester, each fairly involved but each giving a coherent set of tools for the analysis of sampling and optimization. To engage with a problem statement, I also need to sit down and run a set of experiments to figure out my own understanding of the topic. This activity consumes a lot of time. But I would also like to take more courses and fill my toolbox. Hence, I still do not know how one is supposed to balance the sharpening and collecting of tools against real engagement with a problem. After this conference, that balance feels like the most important thing. I hope to find it before I start my PhD, and if not, keep trying throughout my research career.
         </p>
 
         <h2>Speed, GPUs, and Muon</h2>
         <p>
-          There is a related thread running through nearly every paper I admired, whether it was theoretical,
-          empirical, or both: the sheer speed at which these teams moved. This is precisely where I struggle. I
-          tend to take my time understanding a problem and more time to propose a solution. These teams had clear
-          motivation and the ability to act on it quickly, and I think this is where recent progress in coding
-          agents actually helps people like me. Rapid prototyping lets you test a hypothesis fast and then move
-          into the theoretical investigation almost immediately.
+          There is a related thread running through nearly every paper I admired, whether it was theoretical, empirical, or both: the sheer speed at which these teams moved. This is precisely where I struggle. I tend to take my time understanding a problem and more time to propose a solution. These teams had clear motivation and the ability to act on it quickly, and I think this is where recent progress in coding agents actually helps people like me. Rapid prototyping lets you test a hypothesis fast and then move into the theoretical investigation almost immediately.
         </p>
         <p>
-          Some of the work was heavily experimental and, frankly, a function of who has the larger GPUs. This is a
-          controversial thing to say, but I think that is fine. Plenty of interesting problems have come straight
-          out of more compute sitting in more labs. I am not a natural fan of purely experimental papers, but I do
-          see the value. A paper on double descent in large language models, for example, is very much
-          experimental, yet it surfaces behavior consistent enough to be worth questioning and exploring. Muon is
-          the obvious case here. It was introduced in a
-          <a href="https://kellerjordan.github.io/posts/muon/" target="_blank">blog post by Keller Jordan</a> and
-          picked up a massive following, largely for how fast it trains LLMs. That energy was all over the
-          conference: a striking number of papers were trying to explain its convergence or its acceleration, or
-          carry its (empirical) success beyond transformers.
+          Some of the work was heavily experimental and, frankly, a function of who has the larger GPUs. This is a controversial thing to say, but I think that is fine. Plenty of interesting problems have come straight out of more compute sitting in more labs. I am not a natural fan of purely experimental papers, but I do see the value. A paper on double descent in large language models, for example, is very much experimental, yet it surfaces behavior consistent enough to be worth questioning and exploring. Muon is the obvious case here. It was introduced in a
+          <a href="https://kellerjordan.github.io/posts/muon/" target="_blank">blog post by Keller Jordan</a> and picked up a massive following, largely for how fast it trains LLMs. That energy was all over the conference: a striking number of papers were trying to explain its convergence or its acceleration, or carry its (empirical) success beyond transformers.
         </p>
 
         <h2>Workshops, and where this leaves me</h2>
         <p>
-          If I am honest, and this is probably the reaction of a student, the best parts of the whole conference
-          were the tutorials and workshops. A workshop is the easiest way to build an understanding of a topic
-          that is still evolving, figure out the labs which are working on problems around that topic, and come out essentially with a reading list. I went to two workshops: one on diffusion models and one titled Frontiers in
-          Game-Theoretic Learning. Both introduced me to new ideas in the field. Generalization and Memorization in
-          Diffusion Models and Mean Field Games are two examples I can remember clearly and intend to read more
-          on. I have always been excited by learning theory, and understanding the generalization behavior of
-          diffusion models is important given how widely they are used in drug discovery and robotics. One reason
-          I chose to attend the workshop on Game-Theoretic Learning was the essay
+          If I am honest, and this is probably the reaction of a student, the best parts of the whole conference were the tutorials and workshops. A workshop is the easiest way to build an understanding of a topic that is still evolving, figure out the labs which are working on problems around that topic, and come out essentially with a reading list. I went to two workshops: one on diffusion models and one titled Frontiers in Game-Theoretic Learning. Both introduced me to new ideas in the field. Generalization and Memorization in Diffusion Models and Mean Field Games are two examples I can remember clearly and intend to read more on. I have always been excited by learning theory, and understanding the generalization behavior of diffusion models is important given how widely they are used in drug discovery and robotics. One reason I chose to attend the workshop on Game-Theoretic Learning was the essay
           <a href="https://arxiv.org/pdf/2507.06268" target="_blank">A Collectivist, Economic Perspective on
-          AI</a>. The paper introduced me to the idea of agents interacting with each other and the environment in
-          ways that change the data distribution, and to mechanism design as a way to address such problems. So I
-          felt game-theoretic learning is something one must understand for upcoming research on agents. I am
-          quite happy that I did end up attending both workshops.
+          AI</a>. The paper introduced me to the idea of agents interacting with each other and the environment in ways that change the data distribution, and to mechanism design as a way to address such problems. So I felt game-theoretic learning is something one must understand for upcoming research on agents. I am quite happy that I did end up attending both workshops.
         </p>
         <p>
-          The crowds were smaller compared to the main conference, which meant people could actually talk to each other about the problems they
-          cared about. Next year I want to spend far more of my time in workshops than I managed this time. I
-          think I would like to prepare more carefully about the workshops I attend and try to read material around the
-          topics they cover.
+          The crowds were smaller compared to the main conference, which meant people could actually talk to each other about the problems they cared about. Next year I want to spend far more of my time in workshops than I managed this time. I think I would like to prepare more carefully about the workshops I attend and try to read material around the topics they cover.
         </p>
         <p>
-          The conference was quite large and there were exciting problems and ideas being discussed. In all
-          honesty, the schedule was packed and yet I do feel I missed out on a lot. I am not sure if the conference
-          can keep making room for every topic as the bubble around machine learning expands. However, the
-          conference still remains a fast and nice place to engage with problems, try out your tools, and
-          occasionally solve something you care about. I would like to attend more conferences like this, improve myself to take on harder and more interesting problems. But maybe first I should learn to complete my pending
-          tasks and finish my reading list; bigger things like solving an Erdős problem or an open math problem
-          can wait (or ask chat models to
+          The conference was quite large and there were exciting problems and ideas being discussed. In all honesty, the schedule was packed and yet I do feel I missed out on a lot. I am not sure if the conference can keep making room for every topic as the bubble around machine learning expands. However, the conference still remains a fast and nice place to engage with problems, try out your tools, and occasionally solve something you care about. I would like to attend more conferences like this, improve myself to take on harder and more interesting problems. But maybe first I should learn to complete my pending tasks and finish my reading list; bigger things like solving an Erdős problem or an open math problem can wait (or ask chat models to
           <a href="https://chatgpt.com/share/6a6a7d70-4e70-83e8-90b5-0010b4a14ef2" target="_blank">figure out an
           unsolved problem from the last 5 years and ask it to solve it</a>).
         </p>
 
       </div>
     </div>
+    </section>
 
+    </main>
   </div>
 
+  <script src="../script.js"></script>
 </body>
 </html>

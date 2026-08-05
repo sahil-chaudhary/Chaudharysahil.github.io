@@ -4,74 +4,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SoccArt: A Pipeline for Soccer Game Analysis · Sahil Chaudhary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
   <style>
     .post-header {
-      padding: 36px 0 28px;
+      padding: 56px 0 32px;
     }
     .post-header .post-meta {
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.5);
-      margin-bottom: 12px;
+      color: var(--ink-faint);
+      margin-bottom: 14px;
     }
     .post-header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      line-height: 1.25;
+      font-family: var(--display);
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
       max-width: 700px;
-      color: #0d0d0d;
+      color: var(--ink);
     }
     .post-body {
-      font-size: 0.95rem;
-      line-height: 1.9;
-      color: #1a1a1a;
+      font-family:  Arial, Helvetica, sans-serif;
+      font-size: 0.98rem;
+      line-height: 1.85;
+      color: var(--ink-soft);
     }
     .post-body h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin: 32px 0 14px;
-      color: #0d0d0d;
+      font-family:  Arial, Helvetica, sans-serif;
+      font-weight: 600;
+      font-size: 1.35rem;
+      margin: 34px 0 14px;
+      color: var(--ink);
     }
     .post-body p { margin-bottom: 18px; }
     .post-body ul { margin: 0 0 18px 22px; }
     .post-body li { margin-bottom: 8px; }
+    .post-body strong { color: var(--ink); }
+    .post-body a { color: var(--pen-blue); text-decoration: none; border-bottom: 1.5px solid color-mix(in srgb, var(--pen-blue) 35%, transparent); }
+    .post-body a:hover { border-bottom-color: var(--pen-blue); }
     .post-body code {
-      background: #19197e;
+      font-family: var(--mono);
+      background: color-mix(in srgb, var(--pen-blue) 10%, transparent);
+      color: var(--pen-blue-deep);
       padding: 2px 7px;
       border-radius: 4px;
-      font-size: 0.88em;
+      font-size: 0.85em;
     }
     .post-body blockquote {
-      border-left: 3px solid #1400C8;
+      border-left: 3px solid var(--pen-blue);
       padding-left: 20px;
-      color: #555;
+      color: var(--ink-faint);
       font-style: italic;
       margin: 24px 0;
     }
     .post-body figure {
-      margin: 24px 0;
+      margin: 26px 0;
     }
     .post-body figure img {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 12px;
       display: block;
+      border: 1px solid var(--line-strong);
     }
     .post-body figcaption {
-      font-size: 0.8rem;
-      color: #777;
-      margin-top: 8px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      color: var(--ink-faint);
+      margin-top: 10px;
       text-align: center;
     }
     .post-video {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 12px;
       display: block;
-      margin: 24px 0;
+      margin: 26px 0;
       background: #000;
+      border: 1px solid var(--line-strong);
     }
     .post-body table {
       width: 100%;
@@ -82,39 +99,45 @@
     .post-body th, .post-body td {
       text-align: left;
       padding: 8px 12px;
-      border-bottom: 1px solid #e2e2ea;
+      border-bottom: 1px solid var(--line);
     }
     .post-body th {
       font-weight: 700;
-      color: #333;
+      color: var(--ink);
     }
     .back-link {
       display: inline-block;
+      font-family: var(--mono);
       margin-bottom: 24px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.7);
+      color: var(--ink-soft);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .back-link:hover { color: rgb(69, 9, 160); }
+    .back-link:hover { color: var(--pen-blue); }
   </style>
 </head>
 <body>
-
-  <nav>
-    <a href="../index.html" class="nav-name">Sahil Chaudhary</a>
-    <ul class="nav-links">
-      <li><a href="../index.html">About</a></li>
-      <li><a href="../publications.html">Publications</a></li>
-      <li><a href="../blogs.html" class="active">Blogs</a></li>
-      <li><a href="../notes.html">Notes</a></li>
-    </ul>
-  </nav>
+  <div class="grid-layer" aria-hidden="true"></div>
+  <div class="grain-layer" aria-hidden="true"></div>
 
   <div class="page">
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="../index.html">Sahil Chaudhary<span class="dot">.</span></a>
+        <nav class="menu" aria-label="Primary">
+          <a href="../index.html">About</a>
+          <a href="../publications.html">Publications</a>
+          <a href="../blogs.html" aria-current="page">Blogs</a>
+          <a href="../notes.html">Notes</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
 
     <a href="../blogs.html" class="back-link">← Back to Blogs</a>
 
@@ -123,7 +146,8 @@
       <h1>SoccArt: A Pipeline for Soccer Game Analysis</h1>
     </div>
 
-    <div class="card">
+    <section class="section-block" style="padding-top:0;">
+    <div class="panel">
       <div class="post-body">
 
         <p>
@@ -240,8 +264,11 @@
 
       </div>
     </div>
+    </section>
 
+    </main>
   </div>
 
+  <script src="../script.js"></script>
 </body>
 </html>
