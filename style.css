@@ -1,14 +1,14 @@
 :root{
-  --paper:#eaf0ec;
+  --paper:#f2f6f6;
   --ink:#16221c;
   --ink-soft:#000000;
   --ink-faint:#2c2f2e;
-  --pen-blue:#2540c8;
-  --pen-blue-deep:#1b2e8f;
+  --pen-blue:rgb(33, 42, 171);
+  --pen-blue-deep:#010c45;
   --pen-red:#bf3529;
   --line:rgba(30,55,42,.09);
   --line-strong:rgba(30,55,42,.16);
-  --frame:#fbfdfb;
+  --frame:#fbfdfd;
   --grain:.05;
   --serif:"Spectral",Georgia,serif;
   --display:"Fraunces",Georgia,serif;
@@ -28,18 +28,6 @@ body{
   text-rendering:optimizeLegibility;
 }
 
-/* ---- graph-paper grid (fixed, behind everything) ---- */
-.grid-layer{
-  position:fixed; inset:0; z-index:0; pointer-events:none;
-  background-image:
-    linear-gradient(to right, var(--line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--line) 1px, transparent 1px),
-    linear-gradient(to right, var(--line-strong) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--line-strong) 1px, transparent 1px);
-  background-size:27px 27px, 27px 27px, 135px 135px, 135px 135px;
-  -webkit-mask-image:radial-gradient(140% 100% at 50% 0%, #000 55%, transparent 100%);
-          mask-image:radial-gradient(140% 100% at 50% 0%, #000 55%, transparent 100%);
-}
 /* ---- film grain (fixed, opacity driven by scroll) ---- */
 .grain-layer{
   position:fixed; inset:0; z-index:1; pointer-events:none;
@@ -56,25 +44,24 @@ body{
 /* ---- top nav ---- */
 header.nav{
   position:sticky; top:0; z-index:20;
-  backdrop-filter:blur(7px);
-  background:color-mix(in srgb, var(--paper) 78%, transparent);
-  border-bottom:1px solid var(--line);
+  background:var(--pen-blue);
+  border-bottom:1px solid var(--pen-blue-deep);
 }
 .nav-inner{display:flex; align-items:baseline; justify-content:space-between; padding:20px 0;}
 .brand{
   font-family:var(--display); font-weight:600; font-size:1.32rem; letter-spacing:-.01em;
-  color:var(--ink); text-decoration:none;
+  color:#fff; text-decoration:none;
 }
 .brand .dot{color:var(--pen-red);}
 nav.menu{display:flex; gap:26px;}
 nav.menu a{
   font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--ink-soft); text-decoration:none; padding-bottom:3px; position:relative;
+  color:rgba(255,255,255,.78); text-decoration:none; padding-bottom:3px; position:relative;
 }
-nav.menu a[aria-current="page"]{color:var(--pen-blue);}
+nav.menu a[aria-current="page"]{color:#fff;}
 nav.menu a::after{
   content:""; position:absolute; left:0; right:100%; bottom:0; height:1.5px;
-  background:var(--pen-blue); transition:right .28s cubic-bezier(.2,.7,.2,1);
+  background:#fff; transition:right .28s cubic-bezier(.2,.7,.2,1);
 }
 nav.menu a:hover::after, nav.menu a[aria-current="page"]::after{right:0;}
 
